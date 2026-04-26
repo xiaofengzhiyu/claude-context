@@ -27,7 +27,8 @@ const LANGUAGE_PARSERS = {
     cpp: 'tree-sitter-cpp.wasm',
     go: 'tree-sitter-go.wasm',
     rust: 'tree-sitter-rust.wasm',
-    csharp: 'tree-sitter-c_sharp.wasm'
+    csharp: 'tree-sitter-c_sharp.wasm',
+    angelscript: 'tree-sitter-cpp.wasm',
 };
 
 // Node types that represent logical code units
@@ -39,7 +40,8 @@ const SPLITTABLE_NODE_TYPES = {
     cpp: ['function_definition', 'class_specifier', 'namespace_definition', 'declaration'],
     go: ['function_declaration', 'method_declaration', 'type_declaration', 'var_declaration', 'const_declaration'],
     rust: ['function_item', 'impl_item', 'struct_item', 'enum_item', 'trait_item', 'mod_item'],
-    csharp: ['method_declaration', 'class_declaration', 'interface_declaration', 'struct_declaration', 'enum_declaration']
+    csharp: ['method_declaration', 'class_declaration', 'interface_declaration', 'struct_declaration', 'enum_declaration'],
+    angelscript: ['function_definition', 'class_specifier', 'namespace_definition', 'declaration'],
 };
 
 class AstCodeSplitterStub {
@@ -149,7 +151,8 @@ class AstCodeSplitterStub {
             'c++': 'cpp',
             'c': 'cpp',
             'rs': 'rust',
-            'cs': 'csharp'
+            'cs': 'csharp',
+            'as': 'angelscript'
         };
         return langMap[language.toLowerCase()] || language.toLowerCase();
     }
